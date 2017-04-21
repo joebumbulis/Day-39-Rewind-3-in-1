@@ -1,16 +1,24 @@
 import store from "./store.js";
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink
+} from "react-router-dom";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import AppRoot from "./components/app_root.js";
-import About from "./components/about.js";
-import Contact from "./components/contact.js";
+import Game from "./components/game.js";
+import Quiz from "./components/quiz.js";
+import Editor from "./components/editor.js";
 
 const Nav = () => (
   <nav>
-    <li><Link to="/about">About</Link></li>
-    <li><Link to="/contact-us">Contact</Link></li>
+    <li><NavLink to="/">Welcome</NavLink></li>
+    <li><NavLink to="/game">Game</NavLink></li>
+    <li><NavLink to="/quiz">Quiz</NavLink></li>
+    <li><NavLink to="/editor">Editor</NavLink></li>
   </nav>
 );
 
@@ -21,8 +29,9 @@ export default function app() {
         <div>
           <Nav />
           <Route exact path="/" component={AppRoot} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/contact-us" component={Contact} />
+          <Route exact path="/game" component={Game} />
+          <Route exact path="/quiz" component={Quiz} />
+          <Route exact path="/editor" component={Editor} />
         </div>
       </Router>
     </Provider>,

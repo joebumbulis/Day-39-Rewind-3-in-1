@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 class Quiz extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +19,7 @@ class Quiz extends React.Component {
   render() {
     return (
       <section>
+        <Nav />
         <h2>Quiz will go here</h2>
         <form>
           <input type="text" onChange={this.handleChange} defaultValue="name" />

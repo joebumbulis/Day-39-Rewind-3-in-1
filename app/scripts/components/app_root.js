@@ -6,27 +6,31 @@ import Quiz from "./quiz.js";
 import Editor from "./editor";
 
 class AppRoot extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handleClick({ history }) {
+    return (
+      <div>
+        <h1 onClick={() => history.push("/game")}>
+          Click here for the BEST version of a Jeopardy Game on the Web
+        </h1>
+        <h1 onClick={() => history.push("/quiz")}>
+          Click here for the BEST version of a Questionnaire on the Web
+        </h1>
+        <h1 onClick={() => history.push("/editor")}>
+          Click here for the BEST version of a Markdown Editor on the Web
+        </h1>
+      </div>
+    );
+  }
+
   render() {
     return (
       <main>
         <h2>WELCOME to my Extraordinary TIY React/Redux Web Apps</h2>
-        <p />
-        <div>
-          <Link to="/game">
-            the BEST version of a Jeopardy Game on the Web
-          </Link>
-        </div>
-        <div>
-          {" "}
-          <Link to="/quiz">the BEST version of a Questionnaire on the Web</Link>
-        </div>
-        <div>
-          {" "}
-          <Link to="/editor">
-            the BEST version of a Markdown Editor on the Web
-          </Link>
-        </div>
-
+        <Route render={this.handleClick} />
       </main>
     );
   }

@@ -1,35 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import container from "../containers/all.js";
+import quizQuestion from "./quiz_questions.js";
 
-
-class Quiz extends React.Component {
+class Welcome extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
-
-    this.handleChange = this.handleChange.bind(this);
   }
-
-  handleChange(e) {
-    this.setState({
-      name: e.target.value
-    });
-  }
-
   render() {
     return (
       <section>
-        <Nav />
-        <h2>Quiz will go here</h2>
-        <form>
-          <input type="text" onChange={this.handleChange} defaultValue="name" />
-          <input type="email" defaultValue="email" />
-          <input type="submit" value="Send" />
-        </form>
-        <Link to="/about">Learn About Us</Link>
+        <h3>Answer these 10 questions for Better Productivity</h3>
+        <h4><Link to="/question/1">START</Link></h4>
+        {this.props.questions.map((question, ind) => {
+          return (
+            <div>
+              <Link to={`/question/${question.questionNumber}`} key={ind}>
+                {question.question}
+              </Link>
+            </div>
+          );
+        })}
       </section>
     );
   }
 }
 
-export default Quiz;
+export default connect(container.allState)(Welcome);

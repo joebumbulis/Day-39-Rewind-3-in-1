@@ -12,6 +12,7 @@ import AppRoot from "./components/app_root.js";
 import Game from "./components/game.js";
 import Quiz from "./components/quiz.js";
 import Editor from "./components/editor.js";
+import quizQuestion from "./components/quiz_questions.js";
 
 const Nav = () => (
   <nav>
@@ -32,6 +33,7 @@ export default function app() {
           <Route exact path="/game" component={Game} />
           <Route exact path="/quiz" component={Quiz} />
           <Route exact path="/editor" component={Editor} />
+          <Route exact path="/question/:id" component={quizQuestion} />
         </div>
       </Router>
     </Provider>,

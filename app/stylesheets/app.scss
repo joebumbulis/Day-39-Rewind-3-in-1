@@ -76,3 +76,39 @@ button {
 h2 {
   text-align: center;
 }
+
+.question-holder{
+  text-align: center;
+}
+.question {
+  padding-top: 5rem;
+  text-align: center;
+}
+.question-input {
+  margin: 0 auto;
+  width: 20rem;
+}
+.question-counter {
+  text-align: center;
+
+}
+.button-holder{
+  width: 50%;
+  margin: 0 auto;
+}
+.next-button{
+  height: 100px;
+  width: 100px;
+  background: #dbdbdb;
+  color: #243b55;
+  float: right;
+  text-decoration: none;
+}
+.previous-btn{
+  height: 100px;
+  width: 200px;
+  background: #dbdbdb;
+  color: #243b55;
+  cursor: pointer;
+  float: left;
+}

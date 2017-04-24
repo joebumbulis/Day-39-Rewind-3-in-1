@@ -26,6 +26,7 @@ class quizQuestion extends React.Component {
     } else {
       return (
         <h1
+          className="previous-btn"
           onClick={() =>
             history.push(
               "/question/" + (Number(this.props.match.params.id) - 1)
@@ -55,16 +56,27 @@ class quizQuestion extends React.Component {
       );
     } else {
       return (
-        <div>
-          {question.question}
-          <input ref="answer" type="text" placeholder="answer" />
-          <h6>{question.questionNumber} of {maxLength}</h6>
-          <h4 onClick={this.handleClick}>
-            <Link to={"/question/" + (Number(this.props.match.params.id) + 1)}>
-              next
-            </Link>
-          </h4>
-          <Route render={this.prevClick} />
+        <div className="question-holder">
+          <h3 className="question">{question.question}</h3>
+          <input
+            className="question-input"
+            ref="answer"
+            type="text"
+            placeholder="answer"
+          />
+          <h6 className="question-counter">
+            {question.questionNumber} of {maxLength}
+          </h6>
+          <div className="button-holder">
+            <h4 className="next-button" onClick={this.handleClick}>
+              <Link
+                to={"/question/" + (Number(this.props.match.params.id) + 1)}
+              >
+                next
+              </Link>
+            </h4>
+            <Route render={this.prevClick} />
+          </div>
         </div>
       );
     }
